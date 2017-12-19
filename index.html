@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular-Gem-Store</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </head>
+  <body>
+    <body ng-app="myapp">
+      <div ng-controller="myController">
+        <div ng-repeat="product in gems">
+        <img ng-repeat="image in product.images" ng-src="{{image.full}}" alt="Images of Gems">
+          <h1>{{product.name}}</h1>
+          <h2>{{product.price | currency}}</h2>
+          <section ng-controller="panelController">
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link" ng-class="{active:tab === 1}" ng-click="selectTab(1)" href="#">Description</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" ng-class="{active:tab === 2}" ng-click="selectTab(2)" href="#">Specifications</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" ng-class="{active:tab === 3}" ng-click="selectTab(3)" href="#">Reviews</a>
+              </li>
+            </ul>
+            {{tab}}
+            <div class="panel" ng-show="tab === 1">
+              <h4>Description</h4>
+              <p>{{product.description}}</p>
+            </div>
+            <div class="panel" ng-show="tab === 2">
+              <h4>Specifications</h4>
+              <p>In Developement</p>
+            </div>
+            <div class="panel" ng-show="tab === 3">
+              <h4>Reviews</h4>
+              <p>In Developement</p>
+            </div>
+            <button ng-show="product.canPurchase" class="btn btn-primary">Add to Cart</button>
+          </div>
+          </section>
+        <display-name></display-name>
+      </div>
+      <!---<div ng-controller="aliasController as Ctrl">
+        <h1>{{Ctrl.bBall.name}}</h1>
+        <h2>{{Ctrl.bBall.team}}</h2>
+      </div>
+      <h1>{{5+10}}</h1>--->
+      <form>
+        <input type="text" name="" value="" ng-model="sampleData"></input>
+      </form>
+      <h1>{{sampleData}}</h1>
+  </body>
+</html>
