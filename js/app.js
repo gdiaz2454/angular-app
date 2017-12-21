@@ -9,6 +9,11 @@ var gems = [{
   canPurchase:true,
   images:[{
     full:"Images/gem-01.gif"
+  }],
+  Reviews:[{
+    stars:4,
+    body:"Beautifully cut and simply stunning although the diamond could use a cleaning.",
+    author:"gmantruck35@gmail.com"
   }]
 },{
   name:"Sapphire",
@@ -17,6 +22,11 @@ var gems = [{
   canPurchase:true,
   images:[{
     full:"Images/gem-02.gif"
+  }],
+  Reviews:[{
+    stars:2,
+    body:"The sapphire was barely blue and didn't come in the shape I ordered but the gem was a great price.",
+    author:"jenisse.rodriguez@yahoo.com"
   }]
 },{
   name:"Emerald",
@@ -25,6 +35,11 @@ var gems = [{
   canPurchase:true,
   images:[{
     full:"Images/gem-03.gif"
+  }],
+  Reviews:[{
+    stars:"",
+    body:"",
+    author:""
   }]
 },{
   name:"Ruby",
@@ -33,6 +48,11 @@ var gems = [{
   canPurchase:true,
   images:[{
     full:"Images/gem-04.gif"
+  }],
+  Reviews:[{
+    stars:"",
+    body:"",
+    author:""
   }]
 },{
   name:"Jadeite",
@@ -41,6 +61,11 @@ var gems = [{
   canPurchase:true,
   images:[{
     full:"Images/gem-05.gif"
+  }],
+  Reviews:[{
+    stars:"",
+    body:"",
+    author:""
   }]
 },{
   name:"Black opal",
@@ -49,6 +74,11 @@ var gems = [{
   canPurchase:true,
   images:[{
     full:"Images/gem-06.gif"
+  }],
+  Reviews:[{
+    stars:"",
+    body:"",
+    author:""
   }]
 },{
   name:"Colored diamonds",
@@ -57,6 +87,11 @@ var gems = [{
   canPurchase:true,
   images:[{
     full:"Images/gem-07.gif"
+  }],
+  Reviews:[{
+    stars:"",
+    body:"",
+    author:""
   }]
 },{
   name:"Painite",
@@ -65,6 +100,11 @@ var gems = [{
   canPurchase:true,
   images:[{
     full:"Images/gem-08.gif"
+  }],
+  Reviews:[{
+    stars:"",
+    body:"",
+    author:""
   }]
 },{
   name:"Musgravite",
@@ -73,6 +113,11 @@ var gems = [{
   canPurchase:true,
   images:[{
     full:"Images/gem-09.gif"
+  }],
+  Reviews:[{
+    stars:"",
+    body:"",
+    author:""
   }]
 },{
   name:"Alexandrite",
@@ -81,6 +126,11 @@ var gems = [{
   canPurchase:true,
   images:[{
     full:"Images/gem-10.gif"
+  }],
+  Reviews:[{
+    stars:"",
+    body:"",
+    author:""
   }]
 }]
 
@@ -104,12 +154,28 @@ myApp.controller("panelController",function($scope){
     and set it equalto newTab*/
     $scope.tab = newTab;
   }
+
 })
 
-myApp.controller("aliasController",function(){
-  //Angular Aliased Variable
-  this.bBall = bBall;
+myApp.controller("ReviewController", function($scope){
+  $scope.newReview = {};
+  $scope.addReview = function(product){
+    if(!product.Reviews){
+      product.Reviews = [];
+        $scope.newReview = {};
+    }
+    product.Reviews.push($scope.newReview);
+    console.log("yoo")
+  }
 })
+
+
+
+
+//myApp.controller("aliasController",function(){
+  //Angular Aliased Variable
+  //this.bBall = bBall;
+//})
 
 myApp.directive("displayName",function(){
   return {
